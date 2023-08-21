@@ -2,8 +2,7 @@ package main
 
 import (
 	"os"
-
-	"github.com/MiroslavZaprazny/gogit/commands"
+    "github.com/MiroslavZaprazny/gogit/commands/initialize"
 )
 
 func main() {
@@ -14,6 +13,6 @@ func main() {
     command := os.Args[1]
     switch command {
     case "init":
-        commands.Init()
+        initialize.Run()
     }
 }

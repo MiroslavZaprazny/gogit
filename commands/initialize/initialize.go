@@ -1,4 +1,4 @@
-package commands
+package initialize
 
 import (
 	"fmt"
@@ -7,9 +7,12 @@ import (
 
 const BaseDir = ".gogit/" 
 
-func Init () {
+func Run () {
     fmt.Println("Initializing gogit repo ...")
     err := os.Mkdir(BaseDir, 0700)
+    if err != nil {
+        fmt.Printf("err: %v\n", err)
+    }
     folders := [3]string{"objects", "refs", "refs/head"}
 
     for _, folder := range folders {
@@ -17,9 +20,5 @@ func Init () {
         if err != nil {
             fmt.Printf("err: %v\n", err)
         }
-    }
-
-    if err != nil {
-        fmt.Printf("err: %v\n", err)
     }
 }
